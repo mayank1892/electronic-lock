@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	package="b4a.example"
+	android:versionCode="1"
+	android:versionName=""
+	android:installLocation="internalOnly">
+	
+	<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="14"/>
+	<supports-screens android:largeScreens="true" 
+	    android:normalScreens="true" 
+	    android:smallScreens="true" 
+	    android:anyDensity="true"/>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.VIBRATE"/>
+	<uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+	<uses-permission android:name="android.permission.GET_TASKS"/>
+	<uses-permission android:name="android.permission.WAKE_LOCK"/>
+	<uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+	<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+	<application
+		android:icon="@drawable/icon"
+		android:label="Electronic Signature Lock"
+		android:theme="@android:style/Theme.Holo">
+		
+		<meta-data android:name="lockscreen_signature" android:value="LockScreen"/>
+		<service android:name="com.datasteam.b4a.system.lockscreen.LockScreenService">
+		        <intent-filter >
+					<action android:name="com.datasteam.b4a.system.lockscreen.LockScreenService" />
+		        </intent-filter >
+			</service>
+		<receiver android:name="com.datasteam.b4a.system.lockscreen.LockScreenDeviceAdminReceiver" android:permission="android.permission.BIND_DEVICE_ADMIN" >
+				<meta-data
+					android:name="android.app.device_admin"
+					android:resource="@xml/lockscreen_admin" />
+		        <intent-filter>
+		            <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+		        </intent-filter>
+		    </receiver>
+			<receiver android:name="com.datasteam.b4a.system.lockscreen.LockScreenBootReceiver" >
+			    <intent-filter >
+					<action android:name="android.intent.action.BOOT_COMPLETED" />
+			    </intent-filter>
+			</receiver>
+		<activity android:name="com.datasteam.b4a.system.lockscreen.LockScreenHomeResetActivity" android:label="HomeReset" android:theme="@android:style/Theme.NoDisplay" android:enabled="false" android:taskAffinity="" android:stateNotNeeded="true" android:excludeFromRecents="true" android:launchMode="singleTask" android:configChanges="keyboard|keyboardHidden|orientation">
+				<intent-filter>
+					<action android:name="android.intent.action.MAIN" />
+					<category android:name="android.intent.category.HOME" />
+					<category android:name="android.intent.category.DEFAULT" />
+				</intent-filter>
+			</activity>
+		<activity android:name="com.datasteam.b4a.system.lockscreen.LockScreenHomeActivity" android:theme="@android:style/Theme.NoDisplay" android:enabled="false" android:taskAffinity="" android:stateNotNeeded="true" android:excludeFromRecents="true" android:configChanges="keyboard|keyboardHidden|orientation" android:label="Electronic Signature Lock Launcher">
+				<intent-filter>
+					<action android:name="android.intent.action.MAIN" />
+					<category android:name="android.intent.category.HOME" />
+					<category android:name="android.intent.category.DEFAULT" />
+				</intent-filter>
+			</activity>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".main"
+			android:label="Electronic Signature Lock"
+			android:screenOrientation="unspecified">
+			<intent-filter>
+			   <action android:name="android.intent.action.MAIN" />
+			   <category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+			
+		</activity>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".book"
+			android:label="Electronic Signature Lock"
+			android:screenOrientation="unspecified">
+		</activity>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".intro"
+			android:label="Electronic Signature Lock"
+			android:screenOrientation="unspecified">
+		</activity>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".siglock"
+			android:label="Electronic Signature Lock"
+			android:screenOrientation="unspecified">
+		</activity>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".lockscreen"
+			android:label="Electronic Signature Lock"
+			android:screenOrientation="unspecified"
+			android:theme="@style/Theme.Lockscreen">
+		</activity>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".locksliding"
+			android:label="Electronic Signature Lock"
+			android:screenOrientation="unspecified">
+		</activity>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".lockswiping"
+			android:label="Electronic Signature Lock"
+			android:screenOrientation="unspecified">
+		</activity>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".lockswipes"
+			android:label="Electronic Signature Lock"
+			android:screenOrientation="unspecified">
+		</activity>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".viewmap"
+			android:label="Electronic Signature Lock"
+			android:screenOrientation="unspecified">
+		</activity>
+	</application>
+</manifest>
